@@ -11,18 +11,12 @@ Exercise II:
 a) findMaxDiff(arr) {
   let diffs = []
   let min = arr[0]
+  let maxDiff = 0
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] < min) {
       min = arr[i]
-    } else {
-      diffs.push(arr[i] - min)
-    }
-  }
-
-  let maxDiff = 0
-  for (let i = 0; i < diffs.length; i++) {
-    if (arr[i] > maxDiff) {
-      maxDiff = arr[i]
+    } else if (arr[i] - min > maxDiff) {
+      maxDiff = arr[i] - min
     }
   }
 
