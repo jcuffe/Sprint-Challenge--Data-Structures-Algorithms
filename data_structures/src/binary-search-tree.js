@@ -6,13 +6,20 @@ class BinarySearchTree {
   }
 
   depthFirstForEach(cb) {
-    /* Your code here */
-    
+    cb(this.value)
+    if (this.left) this.left.depthFirstForEach(cb)
+    if (this.right) this.right.depthFirstForEach(cb)
   }
 
   breadthFirstForEach(cb) {
-    /* Your code here */
-
+    const queue = []
+    queue.push(this)
+    while (queue.length) {
+      let current = queue.shift()
+      cb(current.value)
+      if (current.left) queue.push(current.left)
+      if (current.right) queue.push(current.right)
+    }
   }
 
   insert(value) {
